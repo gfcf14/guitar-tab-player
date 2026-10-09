@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Guitar Tab Player</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="app-header">
+      <div>
+        <h1>Guitar Tab Player</h1>
+        <p>Simple guitar tab editor and practice player.</p>
+      </div>
+      <div class="file-actions">
+        <label class="button secondary" for="file-input">Open tab</label>
+        <input id="file-input" type="file" accept=".json,application/json" hidden>
+        <button id="new-tab" class="button secondary" type="button">New tab</button>
+        <button id="save-tab" class="button secondary" type="button">Save tab</button>
+      </div>
+    </header>
+
+    <section class="toolbar" aria-label="Tab controls">
+      <label>
+        <span>Title</span>
+        <input id="title-input" type="text" value="My First Tab" maxlength="100">
+      </label>
+      <label>
+        <span>Tempo</span>
+        <input id="tempo-input" type="number" min="40" max="240" value="100">
+      </label>
+      <label>
+        <span>Speed</span>
+        <select id="speed-input">
+          <option value="0.5">0.5×</option>
+          <option value="1" selected>1×</option>
+        </select>
+      </label>
+      <label class="check-control">
+        <input id="metronome-input" type="checkbox">
+        <span>Metronome</span>
+      </label>
+    </section>
+
+    <section class="player-panel" aria-label="Playback">
+      <div class="playback-buttons">
+        <button id="play-button" class="button primary" type="button">▶ Play</button>
+        <button id="stop-button" class="button secondary" type="button">■ Stop</button>
+      </div>
+      <div id="playback-status" class="status" aria-live="polite">Ready</div>
+    </section>
+
+    <section>
+      <div class="section-heading">
+        <div>
+          <h2>Tab</h2>
+          <p>Click a note to hear it. Playback highlights the current position.</p>
+        </div>
+      </div>
+      <div id="tab-view" class="tab-view" aria-label="Guitar tab"></div>
+    </section>
+
+    <section class="editor-section">
+      <div class="section-heading">
+        <div>
+          <h2>Editor</h2>
+          <p>Each column is one moment in time. Enter a fret number, or leave it blank.</p>
+        </div>
+        <div class="editor-actions">
+          <button id="add-beat" class="button secondary" type="button">+ Add beat</button>
+          <button id="add-measure" class="button secondary" type="button">+ Add measure</button>
+          <button id="remove-measure" class="button secondary" type="button">− Remove last measure</button>
+        </div>
+      </div>
+      <div id="tab-editor" class="tab-editor"></div>
+    </section>
+
+    <footer>
+      <p>File format: plain JSON. No server or account required.</p>
+    </footer>
+  </main>
+
+  <script src="js/tab-data.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/player.js"></script>
+  <script src="js/tab-renderer.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
