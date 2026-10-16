@@ -23,6 +23,8 @@ Open `index.html` in a browser. For best browser compatibility, you can also ser
 
 Put the contents of this folder in a repository and enable GitHub Pages for the branch/folder containing `index.html`.
 
+The page uses `assets/logo.svg` and `assets/favicon.ico` for its Green Dream branding, with Orbitron loaded from Google Fonts for the title.
+
 ## File format
 
 The application uses JSON. Each measure contains beats, and each beat contains six strings in low-E to high-e order.
